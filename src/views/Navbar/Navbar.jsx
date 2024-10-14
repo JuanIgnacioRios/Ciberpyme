@@ -9,7 +9,7 @@ function Navbar() {
                     <img src={logo} alt="logo" />
                 </div>
                 <div className="nav-links">
-                    <a href="">CIBERPYME</a>
+                    <a href="/">CIBERPYME</a>
                 </div>
             </div>
         </nav>
