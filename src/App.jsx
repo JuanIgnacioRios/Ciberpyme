@@ -15,6 +15,9 @@ function App() {
           </Route>
           <Route path="/" element={<Layout />}>
             <Route path="/inicio" element={<Home />} />
+            <Route path="/monitoreo" element={<Home />} />
+            <Route path="/capacitaciones" element={<Home />} />
+            <Route path="/gestor-contrasenas" element={<Home />} />
           </Route>
         </Routes>
       </Router>
