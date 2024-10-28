@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Home from "./views/Home/Home";
 import SimpleLayout from "./components/Layout/SimpleLayout";
+import DiagnosticQuiestions from './views/DiagnosticQuiestions/DiagnosticQuiestions';
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
             <Route path="/monitoreo" element={<Home />} />
             <Route path="/capacitaciones" element={<Home />} />
             <Route path="/gestor-contrasenas" element={<Home />} />
+            <Route path="preguntas-diagnostico" element={<DiagnosticQuiestions />} />  
           </Route>
         </Routes>
       </Router>

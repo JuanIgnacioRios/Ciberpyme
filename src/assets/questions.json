@@ -1,0 +1,114 @@
+{
+    "questions": [
+        {
+            "id": 1,
+            "pregunta": "¿Con qué frecuencia actualizas los sistemas y software de tu empresa?",
+            "respuestas": [
+                { "id": "1", "texto": "Mensualmente o más seguido", "puntos": 3 },
+                { "id": "2", "texto": "Cada 3 meses", "puntos": 2 },
+                { "id": "3", "texto": "Una vez al año", "puntos": 1 },
+                { "id": "4", "texto": "Solo cuando es absolutamente necesario", "puntos": 0 }
+            ]
+        },
+        {
+            "id": 2,
+            "pregunta": "¿Cómo gestionas las contraseñas de tu empresa?",
+            "respuestas": [
+                { "id": "1", "texto": "Utilizamos un gestor de contraseñas y las cambiamos cada 3 meses", "puntos": 3 },
+                { "id": "2", "texto": "Almacenamos las contraseñas en un archivo protegido y las cambiamos cada 6 meses", "puntos": 2 },
+                { "id": "3", "texto": "Cada empleado guarda su propia contraseña y las cambia anualmente", "puntos": 1 },
+                { "id": "4", "texto": "Reutilizamos las mismas contraseñas y no las cambiamos regularmente", "puntos": 0 }
+            ]
+        },
+        {
+            "id": 3,
+            "pregunta": "¿Realizas copias de seguridad de los datos críticos de la empresa?",
+            "respuestas": [
+                { "id": "1", "texto": "Diariamente, con almacenamiento externo y en la nube", "puntos": 3 },
+                { "id": "2", "texto": "Semanalmente, solo en la nube", "puntos": 2 },
+                { "id": "3", "texto": "Mensualmente, en un disco duro local", "puntos": 1 },
+                { "id": "4", "texto": "No realizamos copias de seguridad", "puntos": 0 }
+            ]
+        },
+        {
+            "id": 4,
+            "pregunta": "¿Qué medidas utilizas para proteger los dispositivos de la empresa?",
+            "respuestas": [
+                { "id": "1", "texto": "Usamos software antivirus actualizado y firewall en todos los dispositivos", "puntos": 3 },
+                { "id": "2", "texto": "Solo usamos software antivirus actualizado", "puntos": 2 },
+                { "id": "3", "texto": "Usamos software antivirus, pero no siempre está actualizado", "puntos": 1 },
+                { "id": "4", "texto": "No utilizamos antivirus ni firewall", "puntos": 0 }
+            ]
+        },
+        {
+            "id": 5,
+            "pregunta": "¿Cómo manejas el acceso a la red Wi-Fi de tu empresa?",
+            "respuestas": [
+                { "id": "1", "texto": "Tenemos una red separada para empleados y otra para invitados, con contraseñas seguras", "puntos": 3 },
+                { "id": "2", "texto": "Solo permitimos el acceso a empleados con una contraseña segura", "puntos": 2 },
+                { "id": "3", "texto": "La misma red para todos con una contraseña simple", "puntos": 1 },
+                { "id": "4", "texto": "La red está abierta sin restricciones", "puntos": 0 }
+            ]
+        },
+        {
+            "id": 6,
+            "pregunta": "¿Qué tan frecuente es la capacitación en ciberseguridad para el personal?",
+            "respuestas": [
+                { "id": "1", "texto": "Capacitación trimestral con simulaciones de ciberataques", "puntos": 3 },
+                { "id": "2", "texto": "Capacitación anual con material básico", "puntos": 2 },
+                { "id": "3", "texto": "Solo capacitación inicial al ingresar", "puntos": 1 },
+                { "id": "4", "texto": "No ofrecemos capacitación en ciberseguridad", "puntos": 0 }
+            ]
+        },
+        {
+            "id": 7,
+            "pregunta": "¿Qué tipo de autenticación utilizas para proteger los accesos a sistemas críticos?",
+            "respuestas": [
+                { "id": "1", "texto": "Autenticación multifactor (MFA) en todos los accesos críticos", "puntos": 3 },
+                { "id": "2", "texto": "Contraseñas fuertes y únicas, pero sin MFA", "puntos": 2 },
+                { "id": "3", "texto": "Contraseñas estándar compartidas", "puntos": 1 },
+                { "id": "4", "texto": "No tenemos medidas específicas para los accesos", "puntos": 0 }
+            ]
+        },
+        {
+            "id": 8,
+            "pregunta": "¿Tienes un plan de respuesta ante incidentes de ciberseguridad?",
+            "respuestas": [
+                { "id": "1", "texto": "Sí, con roles definidos y pruebas anuales", "puntos": 3 },
+                { "id": "2", "texto": "Tenemos un plan básico pero no lo hemos probado", "puntos": 2 },
+                { "id": "3", "texto": "No tenemos un plan formalizado, solo acciones reactivas", "puntos": 1 },
+                { "id": "4", "texto": "No tenemos ningún plan", "puntos": 0 }
+            ]
+        },
+        {
+            "id": 9,
+            "pregunta": "¿Cómo gestionas el cumplimiento de normativas de protección de datos?",
+            "respuestas": [
+                { "id": "1", "texto": "Cumplimos con todas las normativas y realizamos auditorías periódicas", "puntos": 3 },
+                { "id": "2", "texto": "Cumplimos con la mayoría de las normativas", "puntos": 2 },
+                { "id": "3", "texto": "Estamos en proceso de implementar medidas de cumplimiento", "puntos": 1 },
+                { "id": "4", "texto": "No cumplimos con ninguna normativa de protección de datos", "puntos": 0 }
+            ]
+        },
+        {
+            "id": 10,
+            "pregunta": "¿Cómo proteges los correos electrónicos y la mensajería interna de tu empresa?",
+            "respuestas": [
+                { "id": "1", "texto": "Implementamos cifrado de extremo a extremo para correos y mensajes internos", "puntos": 3 },
+                { "id": "2", "texto": "Usamos cifrado solo en correos electrónicos externos", "puntos": 2 },
+                { "id": "3", "texto": "Solo utilizamos filtros de spam sin cifrado adicional", "puntos": 1 },
+                { "id": "4", "texto": "No implementamos medidas de seguridad específicas para correos o mensajes", "puntos": 0 }
+            ]
+        },
+        {
+            "id": 11,
+            "pregunta": "¿Cómo supervisas el uso de dispositivos USB y almacenamiento externo en tu empresa?",
+            "respuestas": [
+                { "id": "1", "texto": "Tenemos una política estricta que bloquea el uso de dispositivos USB sin autorización", "puntos": 3 },
+                { "id": "2", "texto": "Permitimos el uso de dispositivos USB, pero bajo ciertas restricciones y supervisión", "puntos": 2 },
+                { "id": "3", "texto": "El uso de dispositivos USB no está controlado, pero los empleados están advertidos de los riesgos", "puntos": 1 },
+                { "id": "4", "texto": "No tenemos ninguna política o restricción respecto al uso de dispositivos USB", "puntos": 0 }
+            ]
+        }
+    ]
+}
