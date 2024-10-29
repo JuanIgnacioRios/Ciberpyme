@@ -2,6 +2,18 @@
     "questions": [
         {
             "id": 1,
+            "pregunta": "¿Cuál es el nombre de tu empresa?",
+            "tipo": "text",
+            "placeholder": "Nombre de tu empresa"
+        },
+        {
+            "id": 2,
+            "pregunta": "¿Cuantos empleados son en tu empresa?",
+            "tipo": "number",
+            "placeholder": "Nombre de tu empresa"
+        },       
+        {
+            "id": 3,
             "pregunta": "¿Con qué frecuencia actualizas los sistemas y software de tu empresa?",
             "respuestas": [
                 { "id": "1", "texto": "Mensualmente o más seguido", "puntos": 3 },
@@ -11,7 +23,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 4,
             "pregunta": "¿Cómo gestionas las contraseñas de tu empresa?",
             "respuestas": [
                 { "id": "1", "texto": "Utilizamos un gestor de contraseñas y las cambiamos cada 3 meses", "puntos": 3 },
@@ -21,7 +33,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 5,
             "pregunta": "¿Realizas copias de seguridad de los datos críticos de la empresa?",
             "respuestas": [
                 { "id": "1", "texto": "Diariamente, con almacenamiento externo y en la nube", "puntos": 3 },
@@ -31,7 +43,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 6,
             "pregunta": "¿Qué medidas utilizas para proteger los dispositivos de la empresa?",
             "respuestas": [
                 { "id": "1", "texto": "Usamos software antivirus actualizado y firewall en todos los dispositivos", "puntos": 3 },
@@ -41,7 +53,7 @@
             ]
         },
         {
-            "id": 5,
+            "id": 7,
             "pregunta": "¿Cómo manejas el acceso a la red Wi-Fi de tu empresa?",
             "respuestas": [
                 { "id": "1", "texto": "Tenemos una red separada para empleados y otra para invitados, con contraseñas seguras", "puntos": 3 },
@@ -51,7 +63,7 @@
             ]
         },
         {
-            "id": 6,
+            "id": 8,
             "pregunta": "¿Qué tan frecuente es la capacitación en ciberseguridad para el personal?",
             "respuestas": [
                 { "id": "1", "texto": "Capacitación trimestral con simulaciones de ciberataques", "puntos": 3 },
@@ -61,7 +73,7 @@
             ]
         },
         {
-            "id": 7,
+            "id": 9,
             "pregunta": "¿Qué tipo de autenticación utilizas para proteger los accesos a sistemas críticos?",
             "respuestas": [
                 { "id": "1", "texto": "Autenticación multifactor (MFA) en todos los accesos críticos", "puntos": 3 },
@@ -71,7 +83,7 @@
             ]
         },
         {
-            "id": 8,
+            "id": 10,
             "pregunta": "¿Tienes un plan de respuesta ante incidentes de ciberseguridad?",
             "respuestas": [
                 { "id": "1", "texto": "Sí, con roles definidos y pruebas anuales", "puntos": 3 },
@@ -81,7 +93,7 @@
             ]
         },
         {
-            "id": 9,
+            "id": 11,
             "pregunta": "¿Cómo gestionas el cumplimiento de normativas de protección de datos?",
             "respuestas": [
                 { "id": "1", "texto": "Cumplimos con todas las normativas y realizamos auditorías periódicas", "puntos": 3 },
@@ -91,7 +103,7 @@
             ]
         },
         {
-            "id": 10,
+            "id": 12,
             "pregunta": "¿Cómo proteges los correos electrónicos y la mensajería interna de tu empresa?",
             "respuestas": [
                 { "id": "1", "texto": "Implementamos cifrado de extremo a extremo para correos y mensajes internos", "puntos": 3 },
@@ -101,7 +113,7 @@
             ]
         },
         {
-            "id": 11,
+            "id": 13,
             "pregunta": "¿Cómo supervisas el uso de dispositivos USB y almacenamiento externo en tu empresa?",
             "respuestas": [
                 { "id": "1", "texto": "Tenemos una política estricta que bloquea el uso de dispositivos USB sin autorización", "puntos": 3 },

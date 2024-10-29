@@ -1,14 +1,14 @@
-import { useState } from "react";
-import questions from "../../assets/questions.json";
-import "./DiagnosticQuestions.css";
-import Button from "../../components/Buttons/Button";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import questions from '../../assets/questions.json';
+import './DiagnosticQuestions.css';
 
 const DiagnosticQuestions = () => {
   const questions1 = questions.questions;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const navigate = useNavigate();
+  const [companyName, setCompanyName] = useState('');
+  const [employeeCount, setEmployeeCount] = useState('');
+  const [showIntro, setShowIntro] = useState(true);
 
   const handleAnswerSelect = (questionId, answerId) => {
     setSelectedAnswers((prevAnswers) => ({
@@ -18,10 +18,26 @@ const DiagnosticQuestions = () => {
   };
 
   const handleNext = () => {
-    if (selectedAnswers[questions1[currentQuestionIndex].id]) {
+    // Verificación específica para los campos de texto y número al principio del cuestionario
+    if (currentQuestionIndex === 0 && companyName === '') {
+      alert('Por favor, ingresa el nombre de tu empresa.');
+      return;
+    }
+    
+    if (currentQuestionIndex === 1 && employeeCount === '') {
+      alert('Por favor, ingresa la cantidad de empleados.');
+      return;
+    }
+
+    // Verificación para las preguntas de tipo multiple choice
+    if (currentQuestionIndex >= 2 && !selectedAnswers[questions1[currentQuestionIndex - 2].id]) {
+      alert('Por favor, selecciona una respuesta antes de continuar.');
+      return;
+    }
+
+    // Pasar a la siguiente pregunta
+    if (currentQuestionIndex < questions1.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      alert("Por favor, selecciona una respuesta antes de continuar.");
     }
   };
 
@@ -32,82 +48,112 @@ const DiagnosticQuestions = () => {
   };
 
   const handleSubmit = () => {
-    console.log("Respuestas seleccionadas:", selectedAnswers);
-    navigate("/");
+    console.log('Respuestas seleccionadas:', selectedAnswers);
+    alert('Formulario enviado');  
   };
 
-  const isAnswerSelected =
-    !!selectedAnswers[questions1[currentQuestionIndex].id];
+  const handleStart = () => {
+    setShowIntro(false); // Ocultar la introducción y mostrar el cuestionario
+  };
 
-  const progressPercentage =
-    (currentQuestionIndex / (questions1.length - 1)) * 100;
+  const isAnswerSelected = currentQuestionIndex >= 2 && !!selectedAnswers[questions1[currentQuestionIndex - 2].id];
+  const progressPercentage = (currentQuestionIndex / (questions1.length - 1)) * 100;
 
   return (
-    <div id="diagnostic-questions-container">
-      <section>
-        <div className="milestones-bar">
-          <div className="progress-bar">
-            <div
-              className="progress"
-              style={{ width: `${progressPercentage}%` }}
-            ></div>
-          </div>
-
-          {questions1.map((_, index) => (
-            <div
-              key={index}
-              className={`milestone-circle ${
-                index <= currentQuestionIndex ? "active" : ""
-              }`}
-            >
-              {index + 1}
-            </div>
-          ))}
+    <div id='diagnostic-questions-container'>
+      {showIntro ? (
+        <div className="intro-section">
+          <h3>Diagnóstico Inicial de Ciberseguridad</h3>
+          <p>
+            En esta sección, te guiaremos paso a paso para realizar un diagnóstico rápido y efectivo de la ciberseguridad de tu PyME. 
+            El proceso consta de varias preguntas simples que nos permitirán evaluar el estado actual de la protección de tus datos, 
+            dispositivos y redes.
+            <br /><br />
+            A medida que avances, recibirás recomendaciones personalizadas para fortalecer la seguridad de tu empresa y mitigar posibles 
+            vulnerabilidades. Este diagnóstico es el primer paso para asegurar que tu negocio esté preparado frente a las crecientes amenazas digitales.
+            <br /><br />
+            ¡Comencemos con el análisis y llevemos la seguridad de tu PyME al siguiente nivel!
+          </p>
+          <button onClick={handleStart}>Comenzar</button>
         </div>
+      ) : (
+        <section>
+          {/* Barra de hitos con progreso */}
+            <div className="milestones-bar">
+              <div className="progress-bar">
+                <div className="progress" style={{ width: `${progressPercentage}%` }}></div>
+              </div>
+              {questions1.map((_, index) => (
+                <div
+                  key={index}
+                  className={`milestone-circle ${index <= currentQuestionIndex  ? 'active' : ''}`}
+                >
+                  {index + 1}
+                </div>
+              ))}
+            </div>
 
-        <h3>{questions1[currentQuestionIndex].pregunta}</h3>
-        <form>
-          {questions1[currentQuestionIndex].respuestas.map((respuesta) => (
-            <div className="answer" key={respuesta.id}>
+          {currentQuestionIndex === 0 ? (
+            <div>
+              <h3>¿Cuál es el nombre de tu empresa?</h3>
               <input
-                id={respuesta.id}
-                type="radio"
-                name={`respuesta-${questions1[currentQuestionIndex].id}`}
-                value={respuesta.id}
-                checked={
-                  selectedAnswers[questions1[currentQuestionIndex].id] ===
-                  respuesta.id
-                }
-                onChange={() =>
-                  handleAnswerSelect(
-                    questions1[currentQuestionIndex].id,
-                    respuesta.id
-                  )
-                }
+                type="text"
+                value={companyName}
+                onChange={(e) => {handleAnswerSelect(questions1[currentQuestionIndex].id, e.target.value), setCompanyName(e.target.value)}}
+                placeholder="Ingresa el nombre de la empresa"
               />
-              <label htmlFor={respuesta.id}>{respuesta.texto}</label>
             </div>
-          ))}
-        </form>
-
-        <div className="buttons-container">
-          {currentQuestionIndex > 0 && (
-            <Button variant="secondary" onClick={handlePrevious}>
-              Volver
-            </Button>
-          )}
-
-          {currentQuestionIndex === questions1.length - 1 ? (
-            <Button onClick={handleSubmit} disabled={!isAnswerSelected}>
-              Finalizar
-            </Button>
+          ) : currentQuestionIndex === 1 ? (
+            <div>
+              <h3>¿Cuántos empleados son en {companyName}?</h3>
+              <input
+                type="number"
+                value={employeeCount}
+                onChange={(e) => {handleAnswerSelect(questions1[currentQuestionIndex].id, e.target.value), setEmployeeCount(e.target.value)}}
+                placeholder="Ingresa la cantidad de empleados"
+                
+              />
+            </div>
           ) : (
-            <Button onClick={handleNext} disabled={!isAnswerSelected}>
-              Siguiente
-            </Button>
+            <div>
+              <h3>{questions1[currentQuestionIndex].pregunta}</h3>
+              <form>
+                {questions1[currentQuestionIndex].respuestas.map((respuesta) => (
+                  <div className="answer" key={respuesta.id}>
+                      <input
+                        type="radio"
+                        name={`respuesta-${questions1[currentQuestionIndex].id}`}
+                        value={respuesta.id}
+                        checked={selectedAnswers[questions1[currentQuestionIndex].id] === respuesta.id}
+                        onChange={() =>
+                          handleAnswerSelect(questions1[currentQuestionIndex].id, respuesta.id)
+                        }
+                      />
+                      <label>
+                      {respuesta.texto}
+                    </label>
+                  </div>
+                ))}
+              </form>
+            </div>
           )}
-        </div>
-      </section>
+
+          <div className='buttons-container'>
+            {currentQuestionIndex > 0 && (
+              <button className="back-button" onClick={handlePrevious}>Volver</button>
+            )}
+            {currentQuestionIndex === questions1.length - 1 ? (
+              <button className="foward-button" onClick={handleSubmit} disabled={!isAnswerSelected}>
+                Finalizar
+              </button>
+            ) : (
+              <button className="foward-button" onClick={handleNext} disabled={!isAnswerSelected && currentQuestionIndex >= 2}>
+                Siguiente
+              </button>
+            )}
+          </div>
+        </section>
+      )}
     </div>
   );
 };
