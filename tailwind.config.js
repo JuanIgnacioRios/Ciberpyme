@@ -7,6 +7,15 @@ export default {
         primary: "var(--primary)",
         secondary: "var(--secondary)",
       },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-30px)" },
+        },
+      },
+      animation: {
+        float: "float 3s ease-in-out infinite",
+      },
     },
   },
   plugins: [],

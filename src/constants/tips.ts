@@ -1,0 +1,17 @@
+export const TIPS = [
+  "Invierte en soluciones de ciberseguridad adecuadas para tu negocio, como firewalls, antivirus y sistemas de detección de intrusos.",
+  "Implementa políticas de seguridad claras y comunícalas a todos los empleados.",
+  "Asegúrate de que los datos críticos de tu negocio estén cifrados, tanto en tránsito como en reposo.",
+  "Realiza auditorías de seguridad periódicas para detectar posibles vulnerabilidades en tu infraestructura.",
+  "Utiliza una red privada virtual (VPN) para proteger la comunicación de datos confidenciales, especialmente cuando trabajes remotamente.",
+  "Establece un plan de respuesta a incidentes que defina los pasos a seguir en caso de una violación de seguridad.",
+  "Crea un proceso para la gestión segura de proveedores, asegurándote de que también cumplan con tus estándares de ciberseguridad.",
+  "Implementa autenticación multifactor (MFA) para proteger el acceso a sistemas y datos críticos del negocio.",
+  "Realiza copias de seguridad automatizadas de los datos más importantes y verifica regularmente su integridad.",
+  "Evalúa la ciberseguridad como parte de tu planificación estratégica y presupuesto anual.",
+  "Mantente informado sobre las últimas amenazas de ciberseguridad que podrían afectar a tu sector.",
+  "Limita el acceso a la información sensible solo a aquellos empleados que realmente lo necesiten para su trabajo.",
+  "Revisa y actualiza las políticas de acceso a la red y sistemas cuando un empleado deja la empresa.",
+  "Asegúrate de que las plataformas de pago que utilizas sean seguras y cumplan con las normativas de la industria.",
+  "Considera contratar un seguro de ciberseguridad para proteger a tu empresa ante pérdidas financieras derivadas de ataques cibernéticos.",
+];
