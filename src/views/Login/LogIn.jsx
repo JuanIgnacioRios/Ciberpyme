@@ -3,12 +3,14 @@ import "./LogIn.css";
 import { USER } from "../../mocks/user";
 import useAuth from "../../hooks/useAuth";
 import Button from "../../components/Buttons/Button";
+import useDiagnostic from "../../hooks/useDiagnostic";
 
 export default function LogIn() {
   const [email, setEmail] = useState(USER.email);
   const [password, setPassword] = useState("123456789");
   const [error, setError] = useState("");
   const { signIn } = useAuth();
+  const { resetDiagnostic } = useDiagnostic();
 
   const handleSignIn = () => {
     if (email === USER.email && password === "123456789") {
@@ -51,7 +53,12 @@ export default function LogIn() {
           </Button>
         </form>
         <p>¿No tenés una cuenta?</p>
-        <a href="">Crear una cuenta</a>
+        <button
+          className="text-accent hover:underline"
+          onClick={resetDiagnostic}
+        >
+          Crear una cuenta
+        </button>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import SimpleLayout from "./components/Layout/SimpleLayout";
 import DiagnosticQuiestions from "./views/DiagnosticQuiestions/DiagnosticQuiestions";
 import useAuth from "./hooks/useAuth";
 import NotFound from "./views/NotFound/NotFound";
+import EnConstruccion from "./views/EnConstruccion";
 
 function App() {
   const { currentUser } = useAuth();
@@ -22,9 +23,9 @@ function App() {
           <>
             <Route path="/" element={<Layout />}>
               <Route path="/" element={<Home />} />
-              <Route path="/monitoreo" element={<Home />} />
-              <Route path="/capacitaciones" element={<Home />} />
-              <Route path="/gestor-contrasenas" element={<Home />} />
+              <Route path="/monitoreo" element={<EnConstruccion />} />
+              <Route path="/capacitaciones" element={<EnConstruccion />} />
+              <Route path="/gestor-contrasenas" element={<EnConstruccion />} />
             </Route>
             <Route path="/preguntas-diagnostico" element={<LayoutNoSidebar />}>
               <Route

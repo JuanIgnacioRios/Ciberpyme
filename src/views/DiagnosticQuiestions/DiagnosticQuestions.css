@@ -6,7 +6,7 @@
   flex-flow: column;
 }
 
-#form-container{
+#form-container {
   background-color: #154671;
   margin: auto;
   display: flex;
@@ -16,8 +16,7 @@
   border-radius: 15px;
 }
 
-
-section {
+.diagnostic-section {
   display: flex;
   margin: auto;
   flex-flow: column;
@@ -32,19 +31,11 @@ form {
   color: white;
 }
 
-h3 {
+.diagnostic-section h3 {
   font-size: 24px !important;
   color: white;
   margin-bottom: 20px;
   text-align: center;
-}
-
-label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 18px;
-  color: white;
-  text-align: left;
 }
 
 .milestones-bar {
@@ -93,39 +84,6 @@ label {
   color: white;
 }
 
-button {
-  padding: 10px 20px !important;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-button[disabled] {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.foward-button {
-  background-color: #1ec2a5;
-  color: white;
-}
-
-.back-button {
-  background-color: #fff;
-  color: #154671;
-
-}
-
-.foward-button:hover {
-  background-color: #188d77;
-  border: none;
-}
-
 .answer {
   display: flex;
   flex-flow: row;
@@ -143,8 +101,7 @@ label {
   margin: auto;
 }
 
-.intro-section{
-
+.intro-section {
   display: flex;
   flex-flow: column;
   margin: auto;
@@ -152,25 +109,18 @@ label {
   gap: 40px;
 }
 
-.intro-section h3{
-  color: #FD696E;
+.intro-section h3 {
+  color: #fd696e;
   font-size: 30px;
   font-weight: 600;
 }
 
-.intro-section p{
+.intro-section p {
   color: #fff;
 }
 
-.intro-section button{
-  padding: 15px;
-  background-color: #188d77;
-  color: #fff;
-  width: 160px !important;
-  margin: auto;
-}
-
-input[type="text"], input[type="number"]{
+input[type="text"],
+input[type="number"] {
   width: 70%;
   padding: 10px;
   border: none;
@@ -180,10 +130,12 @@ input[type="text"], input[type="number"]{
   margin: 30px auto;
 }
 
-input[type="text"], input[type="number"]::placeholder{
+input[type="text"],
+input[type="number"]::placeholder {
   color: #154671;
 }
 
-input[type="text"], input[type="number"]:focus{
+input[type="text"],
+input[type="number"]:focus {
   outline: none;
 }

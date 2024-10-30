@@ -27,7 +27,7 @@ export default function Sidebar() {
   const currentPath = pathname.split("/")[1];
   const { signOut } = useAuth();
   return (
-    <aside className="bg-secondary flex flex-col gap-4 items-center p-4 pl-0 justify-between">
+    <aside className="bg-secondary flex flex-col gap-4 items-center p-4 pl-0 justify-between fixed left-0 top-0 pt-16 w-[280px] h-full">
       <div className="flex flex-col gap-4 items-start p-4 pl-0 w-full">
         {SIDEBAR_OPTIONS.map(({ label, path }) => (
           <Link

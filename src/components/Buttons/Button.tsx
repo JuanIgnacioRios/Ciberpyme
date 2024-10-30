@@ -6,10 +6,8 @@ export interface ButtonProps
 }
 
 const variants = {
-  primary:
-    "bg-primary hover:bg-primary/80 disabled:bg-primary/40 py-2 px-4 rounded-md text-white",
-  secondary:
-    "bg-white hover:bg-white/80 disabled:bg-white/40 py-2 px-4 rounded-md text-black",
+  primary: "bg-primary hover:bg-primary-hover py-2 px-4 rounded-md text-white",
+  secondary: "bg-white py-2 px-4 rounded-md text-black",
 };
 
 export default function Button({
@@ -18,7 +16,13 @@ export default function Button({
   ...props
 }: PropsWithChildren<ButtonProps>) {
   return (
-    <button className={variants[variant]} {...props}>
+    <button
+      className={
+        variants[variant] +
+        " hover:bg-opacity-80 disabled:bg-opacity-40 disabled:cursor-not-allowed"
+      }
+      {...props}
+    >
       {children}
     </button>
   );

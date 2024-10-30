@@ -17,6 +17,9 @@ export default function Stars({ stars }: Props) {
           />
         ))}
       </div>
+      <p>
+        <b>Nivel {stars}</b> de ciberseguridad
+      </p>
     </div>
   );
 }

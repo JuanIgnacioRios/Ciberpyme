@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "./store";
 
 export default function useAuth() {
   const auth = useAppSelector((state) => state.auth);
+  const diagnostic = useAppSelector((state) => state.diagnostic);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -23,7 +24,10 @@ export default function useAuth() {
 
   const signIn = (user: IUser) => {
     setCurrentUser(user);
-    navigate("/preguntas-diagnostico");
+    if (diagnostic.score === -1) navigate("/preguntas-diagnostico");
+    else {
+      navigate("/");
+    }
   };
 
   const signOut = () => {

@@ -5,12 +5,14 @@ export default {
     extend: {
       colors: {
         primary: "var(--primary)",
+        "primary-hover": "var(--primary-hover)",
         secondary: "var(--secondary)",
+        accent: "var(--accent)",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-30px)" },
+          "50%": { transform: "translateY(-20px)" },
         },
       },
       animation: {

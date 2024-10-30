@@ -10,7 +10,6 @@ export default function Robot() {
       const number = getRandomNumber(0, TIPS.length - 1);
       const newTip = TIPS[number];
       setTip(newTip);
-      return;
     }
     const interval = setInterval(() => {
       const number = getRandomNumber(0, TIPS.length - 1);

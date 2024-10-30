@@ -14,10 +14,9 @@ export const diagnostico = {
   5: "Excelente nivel de ciberseguridad.",
 };
 
-export const MAX_SCORE = 18;
+export const MAX_SCORE = 33;
 
 export interface IListaDeAccion {
-  rango: string;
   nivel: string;
   mensaje?: string;
   acciones: IAccion[];
@@ -30,7 +29,6 @@ export interface IAccion {
 
 export const listaDeAccion: Record<number, IListaDeAccion> = {
   5: {
-    rango: "15-18 puntos",
     nivel: "Excelente nivel de ciberseguridad",
     mensaje: "Tu empresa está muy bien protegida. Para seguir mejorando:",
     acciones: [
@@ -57,7 +55,6 @@ export const listaDeAccion: Record<number, IListaDeAccion> = {
     ],
   },
   4: {
-    rango: "12-14 puntos",
     nivel: "Buen nivel, con áreas de mejora",
     acciones: [
       {
@@ -83,7 +80,6 @@ export const listaDeAccion: Record<number, IListaDeAccion> = {
     ],
   },
   3: {
-    rango: "8-11 puntos",
     nivel: "Nivel medio, se requieren mejoras",
     acciones: [
       {
@@ -109,7 +105,6 @@ export const listaDeAccion: Record<number, IListaDeAccion> = {
     ],
   },
   2: {
-    rango: "4-7 puntos",
     nivel: "Nivel bajo, es urgente mejorar",
     acciones: [
       {
@@ -135,7 +130,6 @@ export const listaDeAccion: Record<number, IListaDeAccion> = {
     ],
   },
   1: {
-    rango: "0-3 puntos",
     nivel: "Grave riesgo de ciberataques",
     acciones: [
       {

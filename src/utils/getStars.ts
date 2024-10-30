@@ -8,19 +8,19 @@
 
 export function getStars(score: number) {
   let stars = 0;
-  if (score >= 0 && score <= 3) {
+  if (score >= 0 && score <= 6) {
     stars = 1;
   }
-  if (score >= 4 && score <= 7) {
+  if (score >= 7 && score <= 12) {
     stars = 2;
   }
-  if (score >= 8 && score <= 11) {
+  if (score >= 13 && score <= 19) {
     stars = 3;
   }
-  if (score >= 12 && score <= 14) {
+  if (score >= 20 && score <= 26) {
     stars = 4;
   }
-  if (score >= 15 && score <= 18) {
+  if (score >= 27 && score <= 33) {
     stars = 5;
   }
   return stars;

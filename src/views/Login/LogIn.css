@@ -5,8 +5,8 @@
   justify-content: center;
   background: linear-gradient(
     180deg,
-    #154671 11.5%,
-    rgba(30, 194, 165, 0.3) 100%
+    hsla(208, 69%, 26%, 1) 12%,
+    hsla(169, 73%, 44%, 0.3) 100%
   );
 }
 .login-container {
@@ -52,6 +52,8 @@
   border-radius: 5px;
   border: none;
   margin: 5px 0;
+  background-color: white;
+  color: black;
 }
 
 .login-container a {
