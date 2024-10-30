@@ -10,7 +10,7 @@ import { getStars } from "../../utils/getStars";
 import Action from "../../components/home/Action";
 
 export default function Home() {
-  const [score] = useState(5);
+  const [score] = useState(15);
 
   const stars = useMemo(() => {
     return getStars(score);
