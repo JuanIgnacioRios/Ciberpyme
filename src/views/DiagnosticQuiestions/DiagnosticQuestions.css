@@ -1,14 +1,25 @@
 #diagnostic-questions-container {
-  background-color: #154671;
+  background-color: #fff;
   width: 100%;
-  height: 93vh;
+  height: 93.6vh;
   display: flex;
   flex-flow: column;
 }
 
+#form-container{
+  background-color: #154671;
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  width: 1200px;
+  height: 650px;
+  border-radius: 15px;
+}
+
+
 section {
   display: flex;
-  margin: 100px auto auto auto ;
+  margin: auto;
   flex-flow: column;
   width: 600px;
   gap: 20px;

@@ -80,6 +80,7 @@ const DiagnosticQuestions = () => {
 
   return (
     <div id='diagnostic-questions-container'>
+      <div id='form-container'>
       {showIntro ? (
         <div className="intro-section">
           <h3>Diagnóstico Inicial de Ciberseguridad</h3>
@@ -173,6 +174,7 @@ const DiagnosticQuestions = () => {
           </div>
         </section>
       )}
+      </div>
     </div>
   );
 };
