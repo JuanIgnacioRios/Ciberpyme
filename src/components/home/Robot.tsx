@@ -22,10 +22,10 @@ export default function Robot() {
   }, []);
 
   return (
-    <div className="flex items-end justify-end fixed bottom-4 right-2 w-[30%] animate-float">
+    <div className="flex items-end justify-end fixed bottom-4 right-2 w-[20%] animate-float">
       {tip && (
         <div className="absolute right-40 bottom-8 w-[30vw] bg-white border-2 rounded-lg shadow-lg p-4">
-          <p className="text-center">{tip}</p>
+          <p className="text-center text-sm">{tip}</p>
         </div>
       )}
       <img src={"./botcitoconsombra.png"} />

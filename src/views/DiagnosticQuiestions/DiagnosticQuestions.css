@@ -133,6 +133,7 @@ label {
 }
 
 .intro-section{
+
   display: flex;
   flex-flow: column;
   margin: auto;
@@ -146,9 +147,14 @@ label {
   font-weight: 600;
 }
 
+.intro-section p{
+  color: #fff;
+}
+
 .intro-section button{
   padding: 15px;
   background-color: #188d77;
+  color: #fff;
   width: 160px !important;
   margin: auto;
 }
