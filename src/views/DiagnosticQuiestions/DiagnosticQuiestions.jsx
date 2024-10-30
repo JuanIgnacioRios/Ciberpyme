@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import questions from '../../assets/questions.json';
 import './DiagnosticQuestions.css';
+import { useNavigate } from "react-router-dom";
 
 const DiagnosticQuestions = () => {
   const questions1 = questions.questions;
@@ -9,6 +10,7 @@ const DiagnosticQuestions = () => {
   const [companyName, setCompanyName] = useState('');
   const [employeeCount, setEmployeeCount] = useState('');
   const [showIntro, setShowIntro] = useState(true);
+  const navigate = useNavigate();
 
   const handleAnswerSelect = (questionId, answerId) => {
     setSelectedAnswers((prevAnswers) => ({
@@ -18,7 +20,6 @@ const DiagnosticQuestions = () => {
   };
 
   const handleNext = () => {
-    // Verificación específica para los campos de texto y número al principio del cuestionario
     if (currentQuestionIndex === 0 && companyName === '') {
       alert('Por favor, ingresa el nombre de tu empresa.');
       return;
@@ -29,13 +30,11 @@ const DiagnosticQuestions = () => {
       return;
     }
 
-    // Verificación para las preguntas de tipo multiple choice
     if (currentQuestionIndex >= 2 && !selectedAnswers[questions1[currentQuestionIndex - 2].id]) {
       alert('Por favor, selecciona una respuesta antes de continuar.');
       return;
     }
 
-    // Pasar a la siguiente pregunta
     if (currentQuestionIndex < questions1.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
@@ -47,13 +46,33 @@ const DiagnosticQuestions = () => {
     }
   };
 
+  const calculateScore = () => {
+    let score = 0;
+
+    Object.keys(selectedAnswers).forEach((questionId) => {
+      const questionIndex = parseInt(questionId) - 1;
+      const answerId = selectedAnswers[questionId];
+  
+      if (questionIndex >= 2) {
+        const question = questions1[questionIndex];
+        const answer = question.respuestas.find((resp) => resp.id === answerId);
+  
+        if (answer) {
+          score += answer.puntos;
+        }
+      }
+    });
+
+    return score;
+  };
+
   const handleSubmit = () => {
-    console.log('Respuestas seleccionadas:', selectedAnswers);
-    alert('Formulario enviado');  
+    localStorage.setItem('Puntuacion', calculateScore())
+    navigate("/");
   };
 
   const handleStart = () => {
-    setShowIntro(false); // Ocultar la introducción y mostrar el cuestionario
+    setShowIntro(false);
   };
 
   const isAnswerSelected = currentQuestionIndex >= 2 && !!selectedAnswers[questions1[currentQuestionIndex - 2].id];
