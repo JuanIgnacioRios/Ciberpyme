@@ -2,23 +2,28 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Button from "../Buttons/Button";
 import useAuth from "../../hooks/useAuth";
+import { Activity, Book, Home, Lock, Power } from "lucide-react";
 
 const SIDEBAR_OPTIONS = [
   {
     label: "Página principal",
     path: "/",
+    icon: <Home />,
   },
   {
     label: "Monitoreo",
     path: "/monitoreo",
+    icon: <Activity />,
   },
   {
     label: "Capacitaciones",
     path: "/capacitaciones",
+    icon: <Book />,
   },
   {
     label: "Gestor de contraseñas",
     path: "/gestor-contrasenas",
+    icon: <Lock />,
   },
 ];
 
@@ -29,7 +34,7 @@ export default function Sidebar() {
   return (
     <aside className="bg-secondary flex flex-col gap-4 items-center p-4 pl-0 justify-between fixed left-0 top-0 pt-16 w-[280px] h-full">
       <div className="flex flex-col gap-4 items-start p-4 pl-0 w-full">
-        {SIDEBAR_OPTIONS.map(({ label, path }) => (
+        {SIDEBAR_OPTIONS.map(({ label, path, icon }) => (
           <Link
             to={path}
             key={path}
@@ -37,11 +42,19 @@ export default function Sidebar() {
               currentPath === path.split("/")[1] ? "bg-primary" : ""
             }`}
           >
-            {label}
+            <span className="flex gap-2 items-center">
+              {icon}
+              {label}
+            </span>
           </Link>
         ))}
       </div>
-      <Button onClick={signOut}>Cerrar sesión</Button>
+      <Button onClick={signOut}>
+        <span className="flex gap-2 items-center">
+          <Power />
+          Cerrar sesión
+        </span>
+      </Button>
     </aside>
   );
 }

@@ -4,6 +4,8 @@ import "./DiagnosticQuestions.css";
 import { useNavigate } from "react-router-dom";
 import useDiagnostic from "../../hooks/useDiagnostic";
 import Button from "../../components/Buttons/Button";
+import { getStars } from "../../utils/getStars";
+import { listaDeAccion } from "../../constants/diagnostico";
 
 const DiagnosticQuestions = () => {
   const { setDiagnostic } = useDiagnostic();
@@ -74,10 +76,17 @@ const DiagnosticQuestions = () => {
 
   const handleSubmit = () => {
     const score = calculateScore();
+    const stars = getStars(score);
+    const actions = listaDeAccion[stars].acciones;
+    const actionList = {
+      nivel: stars,
+      acciones: actions,
+    };
     setDiagnostic({
       companyName,
       employeeCount,
       score,
+      actionList,
     });
     navigate("/");
   };

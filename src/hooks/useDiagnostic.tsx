@@ -9,7 +9,7 @@ export default function useDiagnostic() {
   const diagnostic = useAppSelector((state) => state.diagnostic);
   const dispatch = useAppDispatch();
 
-  const { score, companyName, employeeCount } = diagnostic;
+  const { score, companyName, employeeCount, actionList } = diagnostic;
 
   const setDiagnostic = (value: IDiagnosticState) => {
     localStorage.setItem("diagnostic", JSON.stringify(value));
@@ -21,11 +21,18 @@ export default function useDiagnostic() {
     dispatch(resetDiagnosticState());
   };
 
+  const updateDiagnostic = (value: Partial<IDiagnosticState>) => {
+    const newDiagnostic = { ...diagnostic, ...value };
+    setDiagnostic(newDiagnostic);
+  };
+
   return {
+    actionList,
     score,
     companyName,
     employeeCount,
     setDiagnostic,
     resetDiagnostic,
+    updateDiagnostic,
   };
 }

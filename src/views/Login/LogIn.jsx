@@ -24,7 +24,7 @@ export default function LogIn() {
   return (
     <div className="login">
       <div className="login-container">
-        <h3>Iniciar sesión</h3>
+        <h3 className="text-3xl font-bold">Iniciar sesión</h3>
         {error && (
           <p className="bg-red-800/80 rounded-lg p-2 border-red-600">{error}</p>
         )}

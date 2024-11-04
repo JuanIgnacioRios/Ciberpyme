@@ -23,5 +23,28 @@ export function getStars(score: number) {
   if (score >= 27 && score <= 33) {
     stars = 5;
   }
+  if (score > 33) {
+    return 6;
+  }
   return stars;
+}
+
+export function getNextLevel(score: number) {
+  let nextLevel = 0;
+  if (score >= 0 && score <= 6) {
+    nextLevel = 7;
+  }
+  if (score >= 7 && score <= 12) {
+    nextLevel = 13;
+  }
+  if (score >= 13 && score <= 19) {
+    nextLevel = 20;
+  }
+  if (score >= 20 && score <= 26) {
+    nextLevel = 27;
+  }
+  if (score >= 27 && score <= 33) {
+    nextLevel = 34;
+  }
+  return nextLevel;
 }
