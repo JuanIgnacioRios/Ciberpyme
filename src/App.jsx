@@ -9,6 +9,7 @@ import DiagnosticQuiestions from "./views/DiagnosticQuiestions/DiagnosticQuiesti
 import useAuth from "./hooks/useAuth";
 import NotFound from "./views/NotFound/NotFound";
 import EnConstruccion from "./views/EnConstruccion";
+import PasswordManager from "./views/PasswordManager/PasswordManager"
 
 function App() {
   const { currentUser } = useAuth();
@@ -25,7 +26,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/monitoreo" element={<EnConstruccion />} />
               <Route path="/capacitaciones" element={<EnConstruccion />} />
-              <Route path="/gestor-contrasenas" element={<EnConstruccion />} />
+              <Route path="/gestor-contrasenas" element={<PasswordManager />} />
             </Route>
             <Route path="/preguntas-diagnostico" element={<LayoutNoSidebar />}>
               <Route
