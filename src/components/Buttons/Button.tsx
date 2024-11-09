@@ -1,4 +1,5 @@
 import React, { PropsWithChildren } from "react";
+import { cn } from "../../utils/className";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,14 +14,16 @@ const variants = {
 export default function Button({
   children,
   variant = "primary",
+  className,
   ...props
 }: PropsWithChildren<ButtonProps>) {
   return (
     <button
-      className={
-        variants[variant] +
-        " hover:bg-opacity-80 disabled:bg-opacity-40 disabled:cursor-not-allowed"
-      }
+      className={cn(
+        variants[variant],
+        "hover:bg-opacity-80 disabled:bg-opacity-40 disabled:cursor-not-allowed",
+        className
+      )}
       {...props}
     >
       {children}
