@@ -22,7 +22,12 @@ export default function PasswordCheck({ label, isChecked }: Props) {
         )}
       </div>
 
-      <p className={cn(isChecked ? "text-green-600" : "text-red-600")}>
+      <p
+        className={cn(
+          isChecked ? "text-green-600" : "text-red-600",
+          "text-left"
+        )}
+      >
         {label}
       </p>
     </div>
