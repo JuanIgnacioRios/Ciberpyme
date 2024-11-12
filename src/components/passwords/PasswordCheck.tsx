@@ -9,7 +9,7 @@ interface Props {
 
 export default function PasswordCheck({ label, isChecked }: Props) {
   return (
-    <div className="flex gap-2 items-center transition-colors">
+    <div className="flex gap-2 items-start transition-colors">
       <div
         className={`rounded-full p-1 ${
           isChecked ? "bg-green-200" : "bg-red-200"

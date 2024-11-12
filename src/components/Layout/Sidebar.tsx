@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Button from "../Buttons/Button";
 import useAuth from "../../hooks/useAuth";
-import { Activity, Book, Home, Lock, Power } from "lucide-react";
+import { Activity, Book, Home, KeyRound, Power } from "lucide-react";
 
 const SIDEBAR_OPTIONS = [
   {
@@ -23,7 +23,7 @@ const SIDEBAR_OPTIONS = [
   {
     label: "Gestor de contraseñas",
     path: "/gestor-contrasenas",
-    icon: <Lock />,
+    icon: <KeyRound />,
   },
 ];
 
