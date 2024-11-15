@@ -50,10 +50,8 @@ export default function Sidebar() {
         ))}
       </div>
       <Button onClick={signOut}>
-        <span className="flex gap-2 items-center">
-          <Power />
-          Cerrar sesión
-        </span>
+        <Power />
+        Cerrar sesión
       </Button>
     </aside>
   );

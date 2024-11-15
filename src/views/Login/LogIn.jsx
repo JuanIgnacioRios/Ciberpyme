@@ -48,7 +48,11 @@ export default function LogIn() {
             />
             <a href="">¿Olvidaste tu contraseña?</a>
           </div>
-          <Button onClick={handleSignIn} type="button">
+          <Button
+            onClick={handleSignIn}
+            type="button"
+            className="justify-center"
+          >
             Iniciar sesión
           </Button>
         </form>
