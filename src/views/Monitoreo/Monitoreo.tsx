@@ -20,7 +20,7 @@ export default function Monitoreo() {
         <Stat title="Puertos vulnerables" stat={"65%"} icon={<Router />} />
         <Stat title="Ataques recibidos" stat={"81"} icon={<Activity />} />
       </article>
-      <article className="w-full mt-2 grid grid-cols-5 grid-rows-2 gap-2">
+      <article className="w-full mt-2 grid grid-cols-4 grid-rows-2 gap-2">
         <div className="col-span-full border-2 shadow-lg rounded-lg p-4 flex flex-col gap-2 h-full justify-start">
           <h3 className="font-bold text-xl text-secondary text-left">
             Actividad en la red
@@ -39,7 +39,7 @@ export default function Monitoreo() {
           </h3>
           <GraficoVulnerabilidades />
         </div>
-        <div className="border-2 shadow-lg rounded-lg p-4 flex flex-col gap-2 col-span-3 justify-start">
+        <div className="border-2 shadow-lg rounded-lg p-4 flex flex-col gap-2 col-span-2 justify-start">
           <h3 className="font-bold text-xl text-secondary text-left">
             Tipo de vulnerabilidades
           </h3>

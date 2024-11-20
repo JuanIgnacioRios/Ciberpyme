@@ -41,7 +41,6 @@ export default function GraficoTipoVunlerabilidades() {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis />
         <Tooltip />
         <Legend />
         <Bar dataKey="t1" stackId="a" fill="#0088FE" name="DDoS" />
