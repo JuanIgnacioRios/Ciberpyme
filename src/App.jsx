@@ -8,9 +8,10 @@ import SimpleLayout from "./components/Layout/SimpleLayout";
 import DiagnosticQuiestions from "./views/DiagnosticQuiestions/DiagnosticQuiestions";
 import useAuth from "./hooks/useAuth";
 import NotFound from "./views/NotFound/NotFound";
-import EnConstruccion from "./views/EnConstruccion";
 import PasswordManager from "./views/PasswordManager/PasswordManager";
+import Phishing from "./views/Capacitaciones/Phishing";
 import Capacitaciones from "./views/Capacitaciones/Capacitaciones";
+import Monitoreo from "./views/Monitoreo/Monitoreo";
 
 function App() {
   const { currentUser } = useAuth();
@@ -25,8 +26,9 @@ function App() {
           <>
             <Route path="/" element={<Layout />}>
               <Route path="/" element={<Home />} />
-              <Route path="/monitoreo" element={<EnConstruccion />} />
+              <Route path="/monitoreo" element={<Monitoreo />} />
               <Route path="/capacitaciones" element={<Capacitaciones />} />
+              <Route path="/capacitaciones/phishing" element={<Phishing />} />
               <Route path="/gestor-contrasenas" element={<PasswordManager />} />
             </Route>
             <Route path="/preguntas-diagnostico" element={<LayoutNoSidebar />}>

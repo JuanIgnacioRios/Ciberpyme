@@ -9,7 +9,7 @@ export interface IAuthState {
 
 const initialState: IAuthState = {
   isLoading: false,
-  currentUser: null,
+  currentUser: USER,
 };
 
 export const authSlice = createSlice({
