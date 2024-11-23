@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import {
   LineChart,
   Line,
-  XAxis,
   YAxis,
   CartesianGrid,
   ResponsiveContainer,
@@ -70,6 +69,7 @@ export default function GraficoActividad() {
         <Line
           dataKey="pv"
           stroke="#1ec2a5"
+          strokeWidth={2}
           isAnimationActive={false}
           dot={false}
         />

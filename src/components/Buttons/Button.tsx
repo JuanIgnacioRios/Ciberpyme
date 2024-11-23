@@ -23,6 +23,7 @@ export default function Button({
       className={cn(
         variants[variant],
         "hover:bg-opacity-80 disabled:bg-opacity-40 disabled:cursor-not-allowed flex gap-2 items-center",
+        props.disabled && "opacity-50",
         className
       )}
       {...props}

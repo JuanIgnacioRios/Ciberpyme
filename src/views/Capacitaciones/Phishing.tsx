@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../components/Buttons/Button";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import EmailItem from "../../components/capacitaciones/EmailItem";
-import { MailWarning } from "lucide-react";
+import { Mail, MailWarning } from "lucide-react";
 import { IPhishingEmail } from "../../types/email";
 import { EMAILS } from "../../mocks/emails";
 
@@ -62,10 +62,16 @@ export default function Phishing() {
             </div>
             <Button onClick={handleAddEmail}>Agregar</Button>
           </div>
-          <Button onClick={handleSendPhishing}>
-            <MailWarning />
-            Enviar phishing
-          </Button>
+          <div className="flex gap-2">
+            <Button disabled>
+              <Mail />
+              Importar emails
+            </Button>
+            <Button onClick={handleSendPhishing} variant={"danger"}>
+              <MailWarning />
+              Enviar phishing
+            </Button>
+          </div>
         </div>
         <div
           className="border-2 shadow-lg rounded-lg w-full p-2 px-4"
