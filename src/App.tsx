@@ -1,6 +1,7 @@
+import React from "react";
 import LogIn from "./views/Login/LogIn";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import LayoutNoSidebar from "./components/Layout/LayoutNoSidebar";
 import Home from "./views/Home/Home";
@@ -12,9 +13,32 @@ import PasswordManager from "./views/PasswordManager/PasswordManager";
 import Phishing from "./views/Capacitaciones/Phishing";
 import Capacitaciones from "./views/Capacitaciones/Capacitaciones";
 import Monitoreo from "./views/Monitoreo/Monitoreo";
+import { useEffect } from "react";
+import useDiagnostic from "./hooks/useDiagnostic";
+import { IDiagnosticState } from "./store/slices/diagnosticSlice";
+import { apiFetch } from "./api/apiFetch";
 
 function App() {
   const { currentUser } = useAuth();
+  const { setDiagnostic } = useDiagnostic();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (currentUser) {
+      apiFetch<IDiagnosticState>(`/diagnostic/${currentUser.username}`)
+        .then((response) => {
+          setDiagnostic(response);
+          if (response.score === -1) navigate("/preguntas-diagnostico");
+          else {
+            navigate("/");
+          }
+        })
+        .catch(() => {
+          navigate("/preguntas-diagnostico");
+        });
+    }
+  }, [currentUser]);
+
   return (
     <>
       <Routes>

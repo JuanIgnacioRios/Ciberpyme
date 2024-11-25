@@ -6,9 +6,11 @@ import useDiagnostic from "../../hooks/useDiagnostic";
 import Button from "../../components/Buttons/Button";
 import { getStars } from "../../utils/getStars";
 import { listaDeAccion } from "../../constants/diagnostico";
+import useAuth from "../../hooks/useAuth";
 
 const DiagnosticQuestions = () => {
   const { setDiagnostic } = useDiagnostic();
+  const { currentUser } = useAuth();
   const questions1 = questions.questions;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -83,6 +85,7 @@ const DiagnosticQuestions = () => {
       acciones: actions,
     };
     setDiagnostic({
+      username: currentUser.username,
       companyName,
       employeeCount,
       score,
@@ -94,10 +97,9 @@ const DiagnosticQuestions = () => {
   const handleStart = () => {
     setShowIntro(false);
   };
-
   const isAnswerSelected =
     currentQuestionIndex >= 2 &&
-    !!selectedAnswers[questions1[currentQuestionIndex - 2].id];
+    !!selectedAnswers[questions1[currentQuestionIndex].id];
   const progressPercentage =
     (currentQuestionIndex / (questions1.length - 1)) * 100;
 
@@ -125,7 +127,7 @@ const DiagnosticQuestions = () => {
               ¡Comencemos con el análisis y llevemos la seguridad de tu PyME al
               siguiente nivel!
             </p>
-            <div>
+            <div className="flex justify-center">
               <Button onClick={handleStart}>Comenzar</Button>
             </div>
           </div>

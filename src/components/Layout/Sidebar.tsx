@@ -49,7 +49,7 @@ export default function Sidebar() {
           </Link>
         ))}
       </div>
-      <Button onClick={signOut}>
+      <Button onClick={signOut} variant="danger">
         <Power />
         Cerrar sesión
       </Button>

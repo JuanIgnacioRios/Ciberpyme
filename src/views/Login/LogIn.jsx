@@ -6,14 +6,14 @@ import Button from "../../components/Buttons/Button";
 import useDiagnostic from "../../hooks/useDiagnostic";
 
 export default function LogIn() {
-  const [email, setEmail] = useState(USER.email);
+  const [username, setUsername] = useState(USER.username);
   const [password, setPassword] = useState("123456789");
   const [error, setError] = useState("");
   const { signIn } = useAuth();
   const { resetDiagnostic } = useDiagnostic();
 
   const handleSignIn = () => {
-    if (email === USER.email && password === "123456789") {
+    if (username === USER.username && password === "123456789") {
       setError("");
       signIn(USER);
     } else {
@@ -30,12 +30,12 @@ export default function LogIn() {
         )}
         <form>
           <div className="input-container">
-            <p>Email</p>
+            <p>Nombre de usuario</p>
             <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              placeholder="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="input-container">
@@ -59,7 +59,7 @@ export default function LogIn() {
         <p>¿No tenés una cuenta?</p>
         <button
           className="text-accent hover:underline"
-          onClick={resetDiagnostic}
+          onClick={() => resetDiagnostic(username)}
         >
           Crear una cuenta
         </button>

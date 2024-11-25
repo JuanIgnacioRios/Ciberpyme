@@ -28,17 +28,6 @@ export default function Home() {
     return getStars(score);
   }, [score]);
 
-  if (score === -1) {
-    return (
-      <div className="flex gap-2 flex-col justify-center items-center h-full">
-        <h1 className="text-black">Tenés que realizar el autodiagnóstico</h1>
-        <LinkButton to="/preguntas-diagnostico">
-          Realizar autodiagnóstico
-        </LinkButton>
-      </div>
-    );
-  }
-
   const { allCompleted, amountCompleted } = useMemo(() => {
     const amountCompleted = actionList.acciones.filter(
       (accion) => accion.completed
@@ -69,6 +58,17 @@ export default function Home() {
       actionList: { nivel: newStars, acciones: newActionList },
     });
   };
+
+  if (score === -1) {
+    return (
+      <div className="flex gap-2 flex-col justify-center items-center h-full">
+        <h1 className="text-black">Tenés que realizar el autodiagnóstico</h1>
+        <LinkButton to="/preguntas-diagnostico">
+          Realizar autodiagnóstico
+        </LinkButton>
+      </div>
+    );
+  }
 
   return (
     <section className="text-black w-full h-full flex flex-col items-start p-4">

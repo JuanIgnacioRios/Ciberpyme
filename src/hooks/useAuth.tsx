@@ -24,10 +24,6 @@ export default function useAuth() {
 
   const signIn = (user: IUser) => {
     setCurrentUser(user);
-    if (diagnostic.score === -1) navigate("/preguntas-diagnostico");
-    else {
-      navigate("/");
-    }
   };
 
   const signOut = () => {

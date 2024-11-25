@@ -13,15 +13,17 @@ export interface IActionListState {
 }
 
 export interface IDiagnosticState {
+  email: string;
   score: number;
   companyName: string;
   employeeCount: number;
   actionList: IActionListState;
 }
 
-const localStorageState = localStorage.getItem("diagnostic");
+// const localStorageState = localStorage.getItem("diagnostic");
 
 const initialState: IDiagnosticState = {
+  email: "",
   score: -1,
   companyName: "",
   employeeCount: 0,
@@ -33,9 +35,7 @@ const initialState: IDiagnosticState = {
 
 export const diagnosticSlice = createSlice({
   name: "diagnostic",
-  initialState: localStorageState
-    ? JSON.parse(localStorageState)
-    : initialState,
+  initialState: initialState,
   reducers: {
     setDiagnosticState: (_, action: PayloadAction<IDiagnosticState>) => {
       return action.payload;
