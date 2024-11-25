@@ -17,9 +17,12 @@ import { useEffect } from "react";
 import useDiagnostic from "./hooks/useDiagnostic";
 import { IDiagnosticState } from "./store/slices/diagnosticSlice";
 import { apiFetch } from "./api/apiFetch";
+import usePhishing from "./hooks/usePhishing";
+import { IPhishingCampaign } from "./store/slices/phishingSlice";
 
 function App() {
   const { currentUser } = useAuth();
+  const { setEmailList, setPreviousCampaigns } = usePhishing();
   const { setDiagnostic } = useDiagnostic();
   const navigate = useNavigate();
 
@@ -29,13 +32,20 @@ function App() {
         .then((response) => {
           setDiagnostic(response);
           if (response.score === -1) navigate("/preguntas-diagnostico");
-          else {
-            navigate("/");
-          }
         })
         .catch(() => {
           navigate("/preguntas-diagnostico");
         });
+      apiFetch<string[]>(`/phishing/emails/${currentUser.username}`).then(
+        (response) => {
+          setEmailList(response);
+        }
+      );
+      apiFetch<IPhishingCampaign[]>(
+        `/phishing/campaigns/${currentUser.username}`
+      ).then((response) => {
+        setPreviousCampaigns(response);
+      });
     }
   }, [currentUser]);
 

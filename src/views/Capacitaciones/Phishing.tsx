@@ -2,15 +2,19 @@ import React from "react";
 import Button from "../../components/Buttons/Button";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import EmailItem from "../../components/capacitaciones/EmailItem";
-import { Mail, MailWarning } from "lucide-react";
-import { IPhishingEmail } from "../../types/email";
-import { EMAILS } from "../../mocks/emails";
+import { Mail, MailWarning, Plus } from "lucide-react";
+import usePhishing from "../../hooks/usePhishing";
+import EmailStatus from "../../components/capacitaciones/EmailStatus";
+import Badge from "../../components/common/Badge";
+import { cn } from "../../utils/className";
 
 export default function Phishing() {
-  const [emails, setEmails] = React.useState<IPhishingEmail[]>(EMAILS);
   const [email, setEmail] = React.useState<string>("");
   const [error, setError] = React.useState<string>("");
   const [emailListAnim] = useAutoAnimate();
+  const [campaignsAnim] = useAutoAnimate();
+  const { emailList, addEmail, deleteEmail, sendPhishing, previousCampaigns } =
+    usePhishing();
 
   const handleValueChange = (value) => {
     setError("");
@@ -23,26 +27,24 @@ export default function Phishing() {
       setError("El email no es válido");
       return;
     }
-    if (emails.some((e) => e.email === email)) {
+    if (emailList.some((e) => e === email)) {
       setError("El email ya fue agregado");
       return;
     }
-    const newEmail = {
-      email,
-      sent: false,
-      clicked: false,
-    };
-    setEmails([...emails, newEmail]);
+    addEmail(email);
     setEmail("");
   };
 
   const handleDeleteEmail = (email: string) => {
-    setEmails(emails.filter((e) => e.email !== email));
+    deleteEmail(email);
   };
 
   const handleSendPhishing = () => {
-    // enviar el phishing
-    setEmails(emails.map((e) => ({ ...e, sent: true, clicked: false }))); // marcar todos como enviados
+    if (emailList.length === 0) {
+      alert("No hay emails para enviar phishing");
+      return;
+    }
+    sendPhishing();
   };
 
   return (
@@ -60,7 +62,10 @@ export default function Phishing() {
               />
               {error && <p className="text-red-500">{error}</p>}
             </div>
-            <Button onClick={handleAddEmail}>Agregar</Button>
+            <Button onClick={handleAddEmail}>
+              <Plus />
+              Agregar
+            </Button>
           </div>
           <div className="flex gap-2">
             <Button disabled>
@@ -80,14 +85,57 @@ export default function Phishing() {
           <h3 className="font-bold text-lg text-secondary text-left">
             Lista de emails
           </h3>
-          {emails.map((email, index) => (
-            <EmailItem
-              key={email.email}
-              email={email}
-              index={index}
-              deleteEmail={handleDeleteEmail}
-            />
-          ))}
+          {emailList.length === 0 ? (
+            <p className="text-left italic">Todavía no agregaste emails</p>
+          ) : (
+            emailList.map((email, index) => (
+              <EmailItem
+                key={email}
+                email={email}
+                index={index}
+                deleteEmail={handleDeleteEmail}
+              />
+            ))
+          )}
+        </div>
+      </article>
+      <article className="border-2 shadow-lg rounded-lg p-4 flex flex-col gap-2 justify-start w-full mt-4">
+        <h3 className="font-bold text-xl text-secondary text-left">
+          Campañas anteriores
+        </h3>
+        <div ref={campaignsAnim} className="flex flex-col">
+          {previousCampaigns.length === 0 ? (
+            <p className="text-left italic">No hay campañas anteriores</p>
+          ) : (
+            previousCampaigns.map((campaign, index) => (
+              <div
+                key={index}
+                className={cn("flex flex-col py-1", index > 0 && "border-t-2")}
+              >
+                <div className="flex justify-between">
+                  <div className="flex items-center gap-2">
+                    <h4 className="font-bold text-lg text-secondary text-left">
+                      Campaña {index + 1}
+                    </h4>
+                    <p className="italic">({campaign.date})</p>
+                  </div>
+                  <Badge variant="warning">
+                    {campaign.employees.filter((e) => e.clicked).length} /{" "}
+                    {campaign.employees.length} empleados hicieron click
+                  </Badge>
+                </div>
+                <div className="flex flex-col">
+                  {campaign.employees.map((email, index) => (
+                    <EmailStatus
+                      key={email.email}
+                      email={email}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </article>
     </section>
