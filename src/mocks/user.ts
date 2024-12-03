@@ -2,7 +2,7 @@ import { IUser } from "../types/user";
 
 export const USER: IUser = {
   id: "1",
-  name: "Juan Perez",
-  email: "juanperez@gmail.com",
-  username: "juanperez",
+  name: "Gabriela",
+  email: "gabrielaperez@gmail.com",
+  username: "gabiperez",
 };

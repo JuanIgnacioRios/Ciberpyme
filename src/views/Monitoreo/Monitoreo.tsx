@@ -12,7 +12,7 @@ export default function Monitoreo() {
       <h2 className="font-bold text-3xl text-secondary">Monitoreo</h2>
       <article className="w-full mt-2 grid grid-cols-4 gap-2">
         <Stat
-          title="Vulnerabilidades activas"
+          title="Intentos de intrusión"
           stat={"120"}
           icon={<ShieldAlert />}
         />
